@@ -1,0 +1,5 @@
+﻿  Roster.cpp
+C:\Users\slyou\source\repos\C867 PA\Roster.h(50,17): error C4596: '{dtor}': illegal qualified name in member declaration
+C:\Users\slyou\source\repos\C867 PA\Roster.cpp(15,18): error C2084: function 'Roster::Roster(void)' already has a body
+C:\Users\slyou\source\repos\C867 PA\Roster.cpp(13): message : see previous definition of '{ctor}'
+C:\Users\slyou\source\repos\C867 PA\Roster.cpp(66,23): error C2082: redefinition of formal parameter 'studentData'
