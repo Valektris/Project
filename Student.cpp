@@ -29,7 +29,7 @@ void Student::SetDaysInCourse(int *daysInCourse[3]) {
 	}
 }
 void Student::SetDegreeProgram(DegreeProgram degree) {
-	this->degree = degree;
+	this->degreeProgram = degree;
 }
 
 string Student::GetStudentID() const {
@@ -51,31 +51,15 @@ int Student::GetDaysInCourse() const {
 	return daysInCourse[3];
 }
 DegreeProgram Student::GetDegreeProgram() const {
-	return degree;
+	return degreeProgram;
 }
 
 //Print function
 
 void Student::print() {
-	cout << GetStudentID() << "\t" << GetFirstName() << "\t" << GetLastName() << "\t" << GetEmailAddress << "\t" << GetAge << "\t" << GetDaysInCourse << "\t" << GetDegreeProgram << endl;
+	cout << GetStudentID() << "\t" << GetFirstName() << "\t" << GetLastName() << "\t" << GetEmailAddress() << "\t" << GetAge() << "\t" << GetDaysInCourse() << "\t" << GetDegreeProgram() << endl;
 }
-//Default constructor;
 
-Student::Student() {}
-
-//Constructor
-
-Student::Student() {
-	studentID = "";
-	firstName = "";
-	lastName = "";
-	emailAddress = "";
-	age = 0;
-	for (int i = 0; i < courseArray; i++) {
-		this->daysInCourse[i] = 0;
-	}
-	this->degree = DegreeProgram::NETWORK;
-}
 //Calculate the average
 int Student::average() {
 	int avg = 0;
@@ -86,9 +70,8 @@ int Student::average() {
 		
 	}
 	avg = total / 3;
-	return avg;
+	cout << "Student's average days in course: " << endl;
 }
 
 //Destructor
 
-Student::~Student() {}

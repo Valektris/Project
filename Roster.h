@@ -15,9 +15,7 @@ private:
 	string lastName;
 	string emailAddress;
 	int age;
-	int daysInCourse1;
-	int daysInCourse2;
-	int daysInCourse3;
+	int *daysInCourse;
 	DegreeProgram degreeProgram;
 
 
@@ -25,13 +23,13 @@ public:
 
 	//Mutators
 
-	void add(int index, string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse, DegreeProgram degreeProgram);
+	void add(string studentID, string firstName, string lastName, string emailAddress, int age, int *daysInCourse, DegreeProgram degreeProgram);
 
 	void remove(string studentID);
 
 	//Accessors
 
-	Student* getStudent(int i);
+	//Student* getStudentID(int i);
 
 	//Print functions
 	
@@ -45,9 +43,9 @@ public:
 
 	Roster();
 
-	//Destructor
+	~Roster();
 
-	Roster::~Roster() {};
 
 
 };
+

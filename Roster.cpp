@@ -31,41 +31,98 @@ Roster::Roster() {
 
 Roster classRosterArray[];
 
-void add(int index, string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse, DegreeProgram degreeProgram);
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int *daysInCourse, DegreeProgram degreeProgram) {
+	int i;
+	for (i = 0; i < 5; i++) {
+		classRosterArray[i] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse, degreeProgram);
+
+	}
+	
+}
 
 
 
-void remove(string studentID){
-	if (studentID == "A3") {
-		classRosterArray.remove(studentID);
+void Roster::remove(string studentID) {
+	int i;
+	bool found = false;
+	for (i = 0; i < 5; i++){
+		if(this->classRosterArray[i]->GetStudentID() == "A3") {
+			found = true;
+			delete this->classRosterArray[i];
+
+		}
+	}
+};
+
+
+
+void Roster::printAll() {
+	int i;
+	for (i = 0; i < 5; i++) {
+		(this->classRosterArray)[i]->print();
+	}
+
+
+}
+
+
+
+void Roster::printInvalidEmails() {
+	int i;
+	for (i = 0; i < 5; i++) {
+		string emailAddress = (this->classRosterArray[i])->GetEmailAddress();
+		if (emailAddress.find('@') == string::npos)
+		{
+			cout << emailAddress << endl;
+		}
+		else if (emailAddress.find(".") == string::npos)
+		{
+			cout << emailAddress << endl;
+		}
+
+		else if (emailAddress.find(" ") != string::npos)
+		{
+			cout << emailAddress << endl;
+		}
+
+
+
+	}
+	
+}
+
+
+
+void Roster::printAverageDaysInCourse() {
+	int i;
+	for (i = 0; i < 5; i++) {
+		this->classRosterArray[i]->Student::average();
+	}
+	
+}
+
+
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
+	int i;
+	for (i = 0; i < 5; i++) {
+		if (classRosterArray[i]->degreeProgram == 0) {
+			cout << "Security Students: " << classRosterArray[i];
+		}
+		else if (classRosterArray[i]->degreeProgram == 1) {
+			cout << "Network Students: " << classRosterArray[i];
+		}
+		else if (classRosterArray[i]->degreeProgram == 2) {
+			cout << "Software Students: " << classRosterArray[i];
+		}
 	}
 }
 
 
 
-void printAll();
-
-
-
-void printInvalidEmails() {
-	
-}
-
-
-
-void printAverageDaysInCourse();
-
-
-
-void printByDegreeProgram(DegreeProgram degreeProgram);
-
-
 
 void Roster::parseandadd(string studentData) {
 	
-	string studentData[5];
-
-
 	for (int i = 0; i < 5; i++)
 	{
 		size_t rhs = studentData[i].find(",");

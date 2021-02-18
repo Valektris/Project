@@ -14,8 +14,8 @@ private:
 	string emailAddress;
 	int age;
 	int daysInCourse[3];
-	DegreeProgram degree;
-	
+	DegreeProgram degreeProgram;
+
 
 public:
 
@@ -26,7 +26,7 @@ public:
 	void SetLastName(string lastName);
 	void SetEmailAddress(string emailAddress);
 	void SetAge(int age);
-	void SetDaysInCourse(int *daysInCourse[3]);
+	void SetDaysInCourse(int* daysInCourse[3]);
 	void SetDegreeProgram(DegreeProgram degree);
 
 	//Accessors
@@ -39,15 +39,35 @@ public:
 	int GetDaysInCourse() const;
 	DegreeProgram GetDegreeProgram() const;
 
-	
+
 
 	//Other required functions
-	
+
 	int average();
 
 	const static int courseArray = 3;
 
 	void print();
 
-	
 };
+
+
+
+	//Default constructor;
+
+	Student::Student() {}
+
+	//Constructor
+
+	Student::Student() {
+		studentID = "";
+		firstName = "";
+		lastName = "";
+		emailAddress = "";
+		age = 0;
+		for (int i = 0; i < courseArray; i++) {
+			this->daysInCourse[i] = 0;
+		}
+		this->degreeProgram = DegreeProgram::NETWORK;
+	}
+
